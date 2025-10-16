@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+FixlStudios HRMS Dashboard
+Welcome to the FixlStudios Human Resource Management System (HRMS) Dashboard, a React-based project designed to help manage employee data, attendance, payroll, leaves, and departments with a clean and dynamic user interface.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Key Features
+State Management with React Context: We use React's Context API extensively to manage global state. Each major data feature—Employees, Departments, Attendance, Leave Requests, and Payroll—is managed through its own context provider. This modular structure ensures clean separation of concerns and easy scalability.
 
-## Available Scripts
+Dynamic Data Persistence: All core datasets (employees, departments, attendance records, leave requests) are persisted in the browser’s localStorage. This ensures data persistence across sessions without a backend.
 
-In the project directory, you can run:
+Data Synchronization and Updates: Context providers initialize their state from either localStorage or derive data dynamically (e.g., departments derived from employees). All updates to data are consistently synchronized back to localStorage, keeping the UI and storage in sync.
 
-### `npm start`
+Usage of React useReducer and useState: Some contexts leverage useReducer for complex state actions (like leaves management), while others rely on useState with update functions for simpler state updates (such as attendance and departments). This pragmatic usage balances code maintainability and functionality.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Charts and Data Visualization:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Chart.js and react-chartjs-2: Visual components like bar and line charts display department-wise salaries and attendance trends effectively.
 
-### `npm test`
+Dynamic charts update live based on localStorage data changes and React state.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Components are designed to gracefully handle empty or initializing data states.
 
-### `npm run build`
+Component-Based UI with Tailwind CSS: The project uses Tailwind CSS for rapid and customizable styling, ensuring responsive and modern design patterns.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Routing and Navigation: React Router DOM provides navigation structure (not detailed here but included in dependencies for future extensions).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Enhanced UX:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Data tables with pagination for attendance and department management.
 
-### `npm run eject`
+Modals for adding and editing department details.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+CSV export support using react-csv.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Toast notifications via react-hot-toast for instant user feedback on data actions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Testing Libraries: Set up with popular React testing tools (@testing-library/react, jest-dom, user-event) to encourage robust unit and integration tests.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Main Third-Party Libraries
+React: Core UI library
 
-## Learn More
+React Router DOM: Navigation and routing
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Chart.js & react-chartjs-2: Interactive data visualization
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React CSV: Data export functionality
 
-### Code Splitting
+React Hot Toast: Toast notifications
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Tailwind CSS: Styling and layout
 
-### Analyzing the Bundle Size
+Testing Libraries: For quality assurance and test writing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Folder Structure Highlights
+/context: Context providers for employees, departments, attendance, leave, payroll.
 
-### Making a Progressive Web App
+/components: Reusable components including charts, tables, modals, and UI elements.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+/pages: Main views like Dashboard, Departments, Attendance management.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+/components/chart: Chart components designed to cleanly visualize HR data.
