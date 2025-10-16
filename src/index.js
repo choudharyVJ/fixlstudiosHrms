@@ -3,11 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PayrollProvider } from './context/PayrollContext';
+import { EmployeeProvider } from './context/EmployeeContext';
+import { AttendanceProvider } from './context/AttendanceContext';
+import { LeaveProvider } from './context/LeaveContext';
+import { Toaster } from 'react-hot-toast';
+import DepartmentContext from './context/DepartmentContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+<Toaster position="top-right" reverseOrder={false} />
+    <EmployeeProvider>
+      <DepartmentContext>
+        <PayrollProvider>
+          <AttendanceProvider>
+          <LeaveProvider>
+           <App/>
+          </LeaveProvider>
+          </AttendanceProvider>
+        </PayrollProvider>
+      </DepartmentContext>
+    </EmployeeProvider>
   </React.StrictMode>
 );
 
